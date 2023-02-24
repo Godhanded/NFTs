@@ -86,7 +86,7 @@ module.exports = {
     },
     contractSizer: {
         runOnCompile: true,
-        only: ["RandomIpfsNft","BasicNft"],
+        only: ["RandomIpfsNft", "BasicNft"],
     },
     namedAccounts: {
         deployer: {

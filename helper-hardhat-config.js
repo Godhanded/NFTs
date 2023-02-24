@@ -12,7 +12,7 @@ const networkConfig = {
         keepersUpdateInterval: "30",
         raffleEntranceFee: ethers.utils.parseEther("0.01"), // 0.1 ETH
         callbackGasLimit: "500000", // 500,000 gas
-        mintFee:"1000000000000000"
+        mintFee: ethers.utils.parseEther("0.1"),
     },
     5: {
         name: "goerli",
@@ -22,7 +22,7 @@ const networkConfig = {
         raffleEntranceFee: ethers.utils.parseEther("0.01"), // 0.1 ETH
         callbackGasLimit: "500000", // 500,000 gas
         vrfCoordinatorV2: "0x2Ca8E0C643bDe4C2E08ab1fA0da3401AdAD7734D",
-        mintFee:"1000000000000000"
+        mintFee: ethers.utils.parseEther("0.1"),
     },
     1: {
         name: "mainnet",
@@ -32,14 +32,9 @@ const networkConfig = {
 
 const developmentChains = ["hardhat", "localhost"];
 const VERIFICATION_BLOCK_CONFIRMATIONS = 6;
-const frontEndContractsFile =
-    "../nextjs-smartcontract-lottery-fcc/constants/contractAddresses.json";
-const frontEndAbiFile = "../nextjs-smartcontract-lottery-fcc/constants/abi.json";
 
 module.exports = {
     networkConfig,
     developmentChains,
     VERIFICATION_BLOCK_CONFIRMATIONS,
-    frontEndContractsFile,
-    frontEndAbiFile,
 };
