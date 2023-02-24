@@ -84,12 +84,12 @@ contract RandomIpfsNft is VRFConsumerBaseV2, ERC721URIStorage, Ownable {
         emit NftMinted(dogBreed, dogOwner);
     }
 
-    function getBreedFromRng(uint256 rng) public view returns (Breed) {
+    function getBreedFromRng(uint256 rng) public pure returns (Breed) {
         uint256 cumulativeSum = 0;
         uint256[3] memory chanceArray = getChanceArray();
 
         for (uint256 i = 0; i < chanceArray.length; i++) {
-            if (rng >= cumulativeSum && rng < cumulativeSum + chanceArray[i]) {
+            if (rng >= cumulativeSum && rng < chanceArray[i]) {
                 return Breed(i);
             }
             cumulativeSum += chanceArray[i];
@@ -103,7 +103,7 @@ contract RandomIpfsNft is VRFConsumerBaseV2, ERC721URIStorage, Ownable {
         if (!success) revert RandomIpfsNft__TransferFailed();
     }
 
-    function getChanceArray() public view returns (uint256[3] memory) {
+    function getChanceArray() public pure returns (uint256[3] memory) {
         return [10, 30, MAX_CHANCE_VALUE];
     }
 
